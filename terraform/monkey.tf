@@ -1,12 +1,27 @@
 module "monkey" {
   source  = "app.terraform.io/technat/vm/hcloud"
-  version = "0.1.0"
+  version = "1.0.0"
 
   common_labels = {
     "app"           = "minecraft"
     "created-by"    = "terraform"
     "configured-by" = "ansible"
   }
+
+  firewall_rules = [
+    {
+      port       = 25565
+      protocol   = "tcp"
+      direction  = "in"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      port       = 25565
+      protocol   = "udp"
+      direction  = "in"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    }
+  ]
 
   server_location   = "hel1"
   server_name       = "monkey"
