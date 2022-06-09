@@ -1,0 +1,3 @@
+provider "hetznerdns" {}
+
+provider "hcloud" {}
