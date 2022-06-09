@@ -20,7 +20,7 @@ resource "hetznerdns_record" "monkey_technat_dev_a" {
   zone_id = data.hetznerdns_zone.technat_dev.id
   name    = "monkey"
   type    = "A"
-  value   = module.monkey.ipv4_address
+  value   = module.monkey.server_ipv4_address
   ttl     = 300
 }
 
@@ -28,6 +28,6 @@ resource "hetznerdns_record" "monkey_technat_dev_aaaa" {
   zone_id = data.hetznerdns_zone.technat_dev.id
   name    = "monkey"
   type    = "AAAA"
-  value   = module.monkey.ipv6_address
+  value   = module.monkey.server_ipv6_address
   ttl     = 300
 }
