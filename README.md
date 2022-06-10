@@ -5,7 +5,7 @@ Repository containing a definition of all my minecraft servers and their configu
 ## Setup
 
 - Create TFE workspace with api-driven workflow, add TFE token as `TF_API_TOKEN` to the Github Repo as secret
-- Generate ssh-key of type `ed25519`, add public key to `terraform/locals.tf` and private key to Github Repo as secret
+- Generate ssh-key of type `ed25519`, add public key to `terraform/locals.tf` and private key to Github Repo as secret names `SSH_KEY`
 - Create a read-only token in hetzner cloud project and add it as `HCLOUD_TOKEN` to the Github Repo secrets
 - Add / Remove servers in [terraform](./terraform) by copying the [monkey.tf](./terraform/monkey.tf) and editing it
 - Change settings for the minecraft server in [settings.yml](./ansible/settings.yml)
