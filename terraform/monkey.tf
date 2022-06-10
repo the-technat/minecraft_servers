@@ -2,11 +2,7 @@ module "monkey" {
   source  = "app.terraform.io/technat/vm/hcloud"
   version = "1.0.1"
 
-  common_labels = {
-    "app"           = "minecraft"
-    "created-by"    = "terraform"
-    "configured-by" = "ansible"
-  }
+  common_labels = local.common_labels
 
   firewall_rules = [
     {
@@ -27,8 +23,8 @@ module "monkey" {
   server_name       = "monkey"
   server_ptr_record = "monkey.technat.dev"
   server_type       = "cx21"
-  ssh_keys          = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJov21J2pGxwKIhTNPHjEkDy90U8VJBMiAodc2svmnFC cardno:18 055 612"]
-  ssh_port          = 59245
+  ssh_keys          = local.ssh_keys
+  ssh_port          = local.ssh_port
 }
 
 resource "hetznerdns_record" "monkey_technat_dev_a" {
