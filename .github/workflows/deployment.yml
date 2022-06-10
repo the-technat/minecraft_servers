@@ -75,7 +75,7 @@ jobs:
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-add - <<< "${{ secrets.SSH_KEY }}"
           cd ansible
-          ansible playbook minecraft.yml -v -e ansible_user=ci -e ansible_ssh_port=59245
+          ansible-playbook minecraft.yml -v -e ansible_user=ci -e ansible_ssh_port=59245
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           ANSIBLE_CONFIG: ./ansible.cfg
