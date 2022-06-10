@@ -59,6 +59,7 @@ jobs:
         run: cd terraform && terraform apply -auto-approve -input=false
   ansible:
     name: "Ansible"
+    needs: terraform
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
