@@ -79,6 +79,7 @@ jobs:
           ssh-add - <<< "${{ secrets.SSH_KEY }}"
           cd ansible
           pip3 install -r requirements.txt
+          ansible-galaxy install -r requirements.yml
           ansible-playbook minecraft.yml -v -e ansible_user=ci -e ansible_ssh_port=59245
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
