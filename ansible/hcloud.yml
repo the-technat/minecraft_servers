@@ -1,4 +1,3 @@
-
 ---
 # Ansible dynamic inventory
 # Ref: https://docs.ansible.com/ansible/latest/collections/hetzner/hcloud/hcloud_inventory.html
