@@ -3,12 +3,11 @@
   hosts: all
   become: true
   become_user: root
-  vars_files:
-    - settings.yml
-  pre_tasks:
-    - name: Setup remote machine (gather informations)
-      setup:
-      register: setup_status
-      until: setup_status is success
-      delay: 10
-      retries: 3
+  roles:
+    - {
+      role: nolte.msopenjdk,
+      jdk_used_version: '17'
+    }
+    - {
+      role: nolte.minecraft,
+    }
