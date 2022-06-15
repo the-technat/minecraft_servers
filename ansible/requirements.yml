@@ -3,5 +3,5 @@ collections:
   - hetzner.hcloud
 
 roles:
-  - nolte.minecraft
+  - the-technat.minecraft
   - nolte.msopenjdk
