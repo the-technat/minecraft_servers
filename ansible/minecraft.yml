@@ -10,5 +10,5 @@
     }
     - {
       role: nolte.minecraft,
-      mc_accept_eula: "true"
+      minecraft_eula_accept: true
     }
