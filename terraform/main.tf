@@ -1,8 +1,7 @@
 module "servers" {
   for_each = local.servers
-  # source   = "app.terraform.io/technat/vm/hcloud"
-  # version  = "1.1.0
-  source = "git::https://github.com/the-technat/terraform-hcloud-vm.git?ref=main"
+  source   = "app.terraform.io/technat/vm/hcloud"
+  version  = "1.2.0"
 
   common_labels = each.value.server_labels
 
