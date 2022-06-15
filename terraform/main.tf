@@ -1,7 +1,8 @@
 module "servers" {
   for_each = local.servers
-  source   = "app.terraform.io/technat/vm/hcloud"
-  version  = "1.1.0"
+  # source   = "app.terraform.io/technat/vm/hcloud"
+  # version  = "1.1.0
+  source = "git::https://github.com/the-technat/terraform-hcloud-vm.git?ref=main"
 
   common_labels = each.value.server_labels
 
@@ -12,7 +13,13 @@ module "servers" {
   server_ptr_record = each.value.server_ptr_record
   server_type       = each.value.server_type
   ssh_keys          = each.value.ssh_keys
+  root_ssh_key_ids  = [hcloud_ssh_key.root.id]
   ssh_port          = each.value.ssh_port
+}
+
+resource "hcloud_ssh_key" "root" {
+  name       = "root key"
+  public_key = local.ssh_keys[0]
 }
 
 resource "hetznerdns_record" "server_dns_a" {
