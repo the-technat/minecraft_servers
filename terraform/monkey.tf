@@ -1,6 +1,6 @@
 module "monkey" {
   source  = "app.terraform.io/technat/vm/hcloud"
-  version = "1.0.1"
+  version = "1.1.0"
 
   common_labels = local.common_labels
 
