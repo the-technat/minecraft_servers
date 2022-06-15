@@ -9,6 +9,6 @@
       jdk_used_version: '17'
     }
     - {
-      role: nolte.minecraft,
+      role: the_technat.minecraft,
       minecraft_eula_accept: true
     }
