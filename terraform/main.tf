@@ -12,7 +12,7 @@ module "servers" {
   server_ptr_record = each.value.server_ptr_record
   server_type       = each.value.server_type
   ssh_keys          = each.value.ssh_keys
-  ssh_port          = each.value.ssh_keys
+  ssh_port          = each.value.ssh_port
 }
 
 resource "hetznerdns_record" "server_dns_a" {
