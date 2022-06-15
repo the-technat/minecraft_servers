@@ -18,12 +18,6 @@ locals {
       protocol   = "udp"
       direction  = "in"
       source_ips = ["0.0.0.0/0", "::/0"]
-    },
-    {
-      port       = 0
-      protocol   = "icmp"
-      direction  = "in"
-      source_ips = ["0.0.0.0/0", "::/0"]
     }
   ]
 }
