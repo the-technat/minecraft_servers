@@ -4,14 +4,15 @@ Repository containing a definition of all my minecraft servers and their configu
 
 ## Setup
 
-- Create TFE workspace with api-driven workflow, add TFE token as `TF_API_TOKEN` to the Github Repo as secret
-- Generate ssh-key of type `ed25519`, add public key to `terraform/locals.tf` and private key to Github Repo as secret names `SSH_KEY`
-- Create a read-only token in hetzner cloud project and add it as `HCLOUD_TOKEN` to the Github Repo secrets
-- Add / Remove servers in [terraform](./terraform) by copying the [monkey.tf](./terraform/monkey.tf) and editing it
-- Change settings for the minecraft server in [settings.yml](./ansible/settings.yml)
-- Let the magic happen by adding a new commit to the repo or starting the Deployment from the [Github Actions Page](https://github.com/the-technat/minecraft_servers/actions)
+- Fork the repository
+- Create TFE workspace with api-driven workflow, add a generated TFE token (with access to that workspace) as `TF_API_TOKEN` to the Github Repo secrets
+- Generate a ssh-key of type `ed25519`. The public key should be in the `local.ssh_keys` var of [terraform/servers.tf](terraform/servers.tf) and the private key should be in the Github repo secrets as `SSH_KEY`
+- Create a read-only token in a hetzner cloud project and add it as `HCLOUD_TOKEN` to the Github repo secrets
+- Add / Remove servers in [terraform/servers.tf](terraform/servers.tf) 
+- Add / Change minecraft settings either in [ansible/groups_vars/all.yml](ansible/group_vars/all.yml) or per server in [ansible/host_vars/servername.yml](ansible/host_vars) 
+- Let the magic happen by heading to the Github Actions tab and triggering the "Continuous Deployment" workflow 
 
-Note: Actual changes only happen on the `main` branch. All other branches get validation and pull-requests get a Terraform plan.
+Note: Deployment's are only done on `main` branch. All other branches will get validation for Terraform & Ansible and if you use a PR to change something on `main` (rather than a commit which directly triggers the deployment) you can see a Terraform plan in your PR with the changes that you suggest.
 
 ## Terraform
 
