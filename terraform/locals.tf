@@ -6,4 +6,24 @@ locals {
     "created_by"    = "terraform"
     "configured-by" = "ansible"
   }
+  common_firewall_rules = [
+    {
+      port       = 25565
+      protocol   = "tcp"
+      direction  = "in"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      port       = 25565
+      protocol   = "udp"
+      direction  = "in"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      port       = 0
+      protocol   = "icmp"
+      direction  = "in"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    }
+  ]
 }

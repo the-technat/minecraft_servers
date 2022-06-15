@@ -4,20 +4,7 @@ module "monkey" {
 
   common_labels = local.common_labels
 
-  firewall_rules = [
-    {
-      port       = 25565
-      protocol   = "tcp"
-      direction  = "in"
-      source_ips = ["0.0.0.0/0", "::/0"]
-    },
-    {
-      port       = 25565
-      protocol   = "udp"
-      direction  = "in"
-      source_ips = ["0.0.0.0/0", "::/0"]
-    }
-  ]
+  firewall_rules = local.common_firewall_rules
 
   server_location   = "hel1"
   server_name       = "monkey"
