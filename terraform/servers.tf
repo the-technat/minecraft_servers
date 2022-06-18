@@ -32,16 +32,16 @@ locals {
       server_labels     = local.server_labels
       firewall_rules    = local.firewall_rules
     }
-    # "gorilla" = {
-    #   server_name       = "gorilla"
-    #   server_ptr_record = "gorilla.technat.dev"
-    #   server_image      = "debian-11"
-    #   server_type       = "ccx32"
-    #   server_location   = "hel1"
-    #   ssh_keys          = local.ssh_keys
-    #   ssh_port          = local.ssh_port
-    #   server_labels     = local.server_labels
-    #   firewall_rules    = local.firewall_rules
-    # }
+    "gorilla" = {
+      server_name       = "gorilla"
+      server_ptr_record = "gorilla.technat.dev"
+      server_image      = "debian-11"
+      server_type       = "ccx32"
+      server_location   = "hel1"
+      ssh_keys          = local.ssh_keys
+      ssh_port          = local.ssh_port
+      server_labels     = local.server_labels
+      firewall_rules    = local.firewall_rules
+    }
   }
 }
