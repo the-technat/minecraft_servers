@@ -1,6 +1,6 @@
 # minecraft_servers
 
-Repository containing a definition of all my minecraft servers and their configuration.
+ Proof of Concept how you could automate your minecraft server deployment.
 
 ## Setup
 
