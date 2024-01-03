@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -68,7 +68,7 @@ jobs:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pip dependencies
         run: pip3 install -r ansible/requirements.txt
       - name: Install ansible-galaxy dependencies
